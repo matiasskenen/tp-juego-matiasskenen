@@ -1,0 +1,45 @@
+.menu-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.menu-container p {
+    margin: 0;
+    padding-right: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.menu-container button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #009579;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-container button:hover {
+    background-color: black;
+}
+
+.menu-container button:active {
+    transform: scale(0.95);
+    background-color:  black;
+}
+
+.menu-container .active-route {
+    background-color: red;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+router-outlet {
+    display: block;
+}

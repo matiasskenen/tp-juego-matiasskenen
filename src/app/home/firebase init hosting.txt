@@ -1,0 +1,11 @@
+firebase init hosting
+ng build
+copi archivos de dis/browser
+y los pego en public
+firebase deploy --only hosting
+
+https://tp-juegos-labo4.web.app
+
+ng g c login
+ng g c home
+ng g c Quiensoy
