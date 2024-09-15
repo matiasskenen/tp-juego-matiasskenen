@@ -1,0 +1,1 @@
+export const enviromentConfig = {"projectId":"tp-juegos-labo4","appId":"1:72978880966:web:edea831367194e969ffac7","storageBucket":"tp-juegos-labo4.appspot.com","apiKey":"AIzaSyCNdEW84sG5qn1Is4b-s7MVw6Ho8N_Nwcg","authDomain":"tp-juegos-labo4.firebaseapp.com","messagingSenderId":"72978880966","measurementId":"G-J3SBZF63TQ"}
