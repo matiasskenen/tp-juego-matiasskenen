@@ -76,14 +76,20 @@ body{
 .form input.button:hover{
   background: #006653;
 }
-.signup{
-  font-size: 17px;
+.signup {
+  margin-top: 5px;
   text-align: center;
 }
-.signup label{
-  color: #009579;
+
+.signup button {
+  color: black;
+  border: 1px solid black;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
 }
-.signup label:hover{
-  text-decoration: underline;
+
+.signup button:hover {
+  background: #218838;
 }

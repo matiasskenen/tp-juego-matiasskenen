@@ -1,0 +1,11 @@
+https://labo4-f8249.web.app
+
+ng build
+
+copiar archivos dilt a public
+
+firebase deploy --only hosting
+
+npm install
+
+ng serve -o
