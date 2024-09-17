@@ -19,6 +19,12 @@
 
       </form>
       
+      <div class="botones">
+        <button type="button" class="botones-autocompletar" (click)="autocompletar('matias.skenen@gmail.com', '123456')">Usuario 1</button>
+        <button type="button" class="botones-autocompletar" (click)="autocompletar('lucasmansini@gmail.com', '123456')">Usuario 2</button>
+        <button type="button" class="botones-autocompletar" (click)="autocompletar('jorge@gmail.com', '123456')">Usuario 3</button>
+      </div>
+
       <div class="signup">
         <button (click)="redirectToLogin()">
           Inciar Sesion

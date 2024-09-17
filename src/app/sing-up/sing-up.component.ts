@@ -29,7 +29,11 @@ export class SingUpComponent {
   {
     createUserWithEmailAndPassword(this.auth, this.email, this.password).then((res) => 
     {
-      if ( res.user.email !== null) this.loggedUser = res.user.email;
+      if ( res.user.email !== null)
+        {
+          this.loggedUser = res.user.email;
+          this.router.navigate(["/login"]);;
+        } 
 
       this.flagError = false;
     }).catch((e) => {
@@ -55,5 +59,11 @@ export class SingUpComponent {
     this.router.navigate(["/login"]);
   }
 
+
+    autocompletar(email: string, password: string) 
+  {
+    this.email = email;
+    this.password = password;
+  }
 
 }

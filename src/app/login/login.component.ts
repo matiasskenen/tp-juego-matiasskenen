@@ -16,7 +16,7 @@ import { DataService } from '../service/data.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-
+  public nombre: string = "";
   public email: string = '';
   public password: string = '';
   public mensagges = "";
@@ -43,7 +43,7 @@ export class LoginComponent {
     {
       if ( res.user.email !== null)
         {
-          this.userService.setUser(res.user.email);
+          this.userService.setUser(this.nombre);
           this.router.navigate(["/home"]);;
         } 
 
@@ -86,6 +86,13 @@ export class LoginComponent {
   enviarDatoFn()
   {
     this.enviarDato.emit(this.dato);
+  }
+
+  autocompletar(nombre:string, email: string, password: string) 
+  {
+    this.nombre = nombre;
+    this.email = email;
+    this.password = password;
   }
 
   /*

@@ -93,3 +93,63 @@
   .signup button:hover {
     background: #218838;
   }
+
+  .signup {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .signup button {
+    color: #fff;
+    background-color: #a88cc8;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup button:hover {
+    background-color: #19201a;
+  }
+  
+  .botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px; /* Espacio superior para separación */
+  }
+  
+  .button,
+  .botones-autocompletar {
+    width: 100%; /* Asegura que los botones ocupen el ancho completo del contenedor */
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02); /* Ligera ampliación al pasar el cursor */
+  }
+  
+  .botones-autocompletar {
+    background-color: #6c757d;
+    color: white;
+    font-weight: 400;
+  }
+  
+  .botones-autocompletar:hover {
+    background-color: #5a6268;
+    transform: scale(1.02); /* Ligera ampliación al pasar el cursor */
+  }

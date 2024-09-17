@@ -9,6 +9,8 @@
           <li><a href="#">Contacto</a></li>
           <li *ngIf="!user"><a href="/login">Iniciar Sesión</a></li>
           <li *ngIf="!user"><a href="/singin">Registrarse</a></li>
+          <li *ngIf="user"><a href="" (click)="signOut()">Cerrar sesion</a></li>
+          <li *ngIf="user">{{user}}</li>
         </ul>
       </div>
     </nav>

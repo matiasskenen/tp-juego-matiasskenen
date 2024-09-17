@@ -4,6 +4,7 @@
       <div class="login form">
         <header>Login</header>
         <form action="#">
+          <input type="text" [(ngModel)]="nombre" placeholder="Ingrese su Nombre" name="nombre" required="">
           <input type="text" [(ngModel)]="email" placeholder="Ingrese su Email" name="email">
           <input type="password" [(ngModel)]="password" placeholder="Ingrese su Contraseña" name="password">
           <input type="button" (click)="loginUser()" class="button" value="IniciarSesion">
@@ -18,7 +19,13 @@
             <p>{{msjError}}</p>
           }
         </form>
-        
+
+        <div class="botones">
+        <button type="button" class="botones-autocompletar" (click)="autocompletar('usuario1','matias.skenen@gmail.com', '123456')">Usuario 1</button>
+        <button type="button" class="botones-autocompletar" (click)="autocompletar('usuario2','lucasmansini@gmail.com', '123456')">Usuario 2</button>
+        <button type="button" class="botones-autocompletar" (click)="autocompletar('usuario3','jorge@gmail.com', '123456')">Usuario 3</button>
+        </div>
+
         <div class="signup">
           <button class="signup" (click)="redirectToSignIn()">
             Registrarse
