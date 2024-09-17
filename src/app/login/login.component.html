@@ -1,32 +1,37 @@
-
-<div class="container">
-    <input type="checkbox" id="check">
-    <div class="login form">
-      <header>Login</header>
-      <form action="#">
-        <input type="text" [(ngModel)]="email" placeholder="Ingrese su Email" name="email">
-        <input type="password" [(ngModel)]="password" placeholder="Ingrese su Contraseña" name="password">
-        <input type="button" (click)="loginUser()" class="button" value="IniciarSesion">
-        <!-- <input type="button" (click)="getData()" class="button" value="Valores"> -->
+<body>
+  <div class="container">
+      <input type="checkbox" id="check">
+      <div class="login form">
+        <header>Login</header>
+        <form action="#">
+          <input type="text" [(ngModel)]="email" placeholder="Ingrese su Email" name="email">
+          <input type="password" [(ngModel)]="password" placeholder="Ingrese su Contraseña" name="password">
+          <input type="button" (click)="loginUser()" class="button" value="IniciarSesion">
+          <!-- <input type="button" (click)="getData()" class="button" value="Valores"> -->
+          
+          @if (loggedUser != "")
+          {
+            <p>Usuario Registrado</p>
+          }
+          @if (flagError)
+          {
+            <p>{{msjError}}</p>
+          }
+        </form>
         
-        @if (loggedUser != "")
-        {
-          <p>Usuario Registrado</p>
-        }
-        @if (flagError)
-        {
-          <p>{{msjError}}</p>
-        }
+        <div class="signup">
+          <button class="signup" (click)="redirectToSignIn()">
+            Registrarse
+          </button>
+        </div>
 
-
-      </form>
-      
-      <div class="signup">
-        <button class="signup" (click)="redirectToSignIn()">
-          Registrarse
+        <!--
+        <button class="signup" (click)="enviarDatoFn()">
+          enviar
         </button>
+        -->
       </div>
-
     </div>
+</body>
 
-  </div>
+

@@ -1,0 +1,14 @@
+
+    <nav>
+      <div class="nav-content">
+        <div class="logo">
+          <a href="/home">GAME-TIME</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/quiensoy">Quien soy</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li *ngIf="!user"><a href="/login">Iniciar Sesión</a></li>
+          <li *ngIf="!user"><a href="/singin">Registrarse</a></li>
+        </ul>
+      </div>
+    </nav>

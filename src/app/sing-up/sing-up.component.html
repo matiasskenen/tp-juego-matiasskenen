@@ -1,30 +1,29 @@
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Registrarse</header>
+      <form action="#">
+        <input type="text" [(ngModel)]="email" placeholder="Ingrese su Email" name="email">
+        <input type="password" [(ngModel)]="password" placeholder="Ingrese su Contraseña" name="password">
+        <input type="button" (click)="register()" class="button" value="Registrarse">
 
-<div class="container">
-  <input type="checkbox" id="check">
-  <div class="login form">
-    <header>Registrarse</header>
-    <form action="#">
-      <input type="text" [(ngModel)]="email" placeholder="Ingrese su Email" name="email">
-      <input type="password" [(ngModel)]="password" placeholder="Ingrese su Contraseña" name="password">
-      <input type="button" (click)="register()" class="button" value="Registrarse">
+        @if (loggedUser != "")
+        {
+          <p>Usuario Registrado</p>
+        }
+        @if (flagError)
+        {
+          <p>{{msjError}}</p>
+        }
 
-      @if (loggedUser != "")
-      {
-        <p>Usuario Registrado</p>
-      }
-      @if (flagError)
-      {
-        <p>{{msjError}}</p>
-      }
-
-    </form>
-    
-    <div class="signup">
-      <button (click)="redirectToLogin()">
-        Inciar Sesion
-      </button>
+      </form>
+      
+      <div class="signup">
+        <button (click)="redirectToLogin()">
+          Inciar Sesion
+        </button>
+      </div>
     </div>
-
   </div>
-
-</div>
+</body>
