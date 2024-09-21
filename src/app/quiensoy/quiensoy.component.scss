@@ -4,7 +4,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f0f0f0;
+    background: linear-gradient(to bottom, #1a163f, #302b63, #b06dbd);
   }
   
   .about-me-card {
@@ -14,7 +14,7 @@ html, body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 700px;
     padding: 20px;
-    font-family: 'Roboto', sans-serif; /* Fuente moderna */
+    font-family: 'Roboto', sans-serif;
   }
   
   .about-me-header {
@@ -24,8 +24,8 @@ html, body {
   .about-me-header h2 {
     margin: 0;
     color: #333;
-    font-size: 2rem; /* Tamaño más grande para el encabezado */
-    font-weight: 700; /* Negrita */
+    font-size: 2rem;
+    font-weight: 700; 
   }
   
   .about-me-body {
@@ -43,10 +43,10 @@ html, body {
   }
   
   .description {
-    font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor */
-    color: #444; /* Color de texto un poco más oscuro */
-    line-height: 1.6; /* Espaciado entre líneas ajustado */
-    font-weight: 400; /* Peso de fuente normal */
+    font-size: 1.1rem; 
+    color: #444; 
+    line-height: 1.6; 
+    font-weight: 400; 
   }
   
   .social-media {
@@ -60,7 +60,7 @@ html, body {
     color: #333;
     font-size: 1.5rem;
     text-decoration: none;
-    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+    transition: color 0.3s ease; 
   }
   
   .social-icon:hover {

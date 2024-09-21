@@ -16,7 +16,6 @@ import { DataService } from '../service/data.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  public nombre: string = "";
   public email: string = '';
   public password: string = '';
   public mensagges = "";
@@ -24,6 +23,9 @@ export class LoginComponent {
   loggedUser: string = "";
   flagError: boolean = false;
   msjError: string = "";
+
+
+  isLoading = false;
 
   public countLogins: number = 0;
 
@@ -43,8 +45,12 @@ export class LoginComponent {
     {
       if ( res.user.email !== null)
         {
-          this.userService.setUser(this.nombre);
-          this.router.navigate(["/home"]);;
+          this.isLoading = true;
+          setTimeout(() => {
+            this.userService.setUser(this.email);
+            this.isLoading = false;
+            this.router.navigate(["/home"]);
+          }, 1000);
         } 
 
       this.flagError = false;
@@ -54,15 +60,33 @@ export class LoginComponent {
 
       switch(e.code)
       {
-        case "auh/invalid-email":
-          this.msjError = "Email Invalido";
-        break;
-        case "auh/email-already-in-use":
-          this.msjError = "Email Ya en uso";
-        break;
+        case "auth/weak-password":
+          this.msjError = "Contraseña demasiado corta.";
+          break;
+        case "auth/invalid-email":
+          this.msjError = "Correo electrónico no válido.";
+          break;
+        case "auth/email-already-in-use":
+          this.msjError = "El correo electrónico ya está en uso.";
+          break;
+        case "auth/user-not-found":
+          this.msjError = "No se encontró ningún usuario con este correo.";
+          break;
+        case "auth/wrong-password":
+          this.msjError = "Credenciales Invalidas.";
+          break;
+        case "auth/invalid-credential":
+          this.msjError = "Credenciales no válidas.";
+          break;
+        case "auth/account-exists-with-different-credential":
+          this.msjError = "Ya existe una cuenta con un correo diferente.";
+          break;
+        case "auth/credential-already-in-use":
+          this.msjError = "Estas credenciales ya están en uso por otra cuenta.";
+          break;
         default:
-          this.msjError = e.code;
-        break;
+          this.msjError = "Error: " + e.code;
+          break;
       }
     })
   }
@@ -88,9 +112,8 @@ export class LoginComponent {
     this.enviarDato.emit(this.dato);
   }
 
-  autocompletar(nombre:string, email: string, password: string) 
+  autocompletar(email: string, password: string) 
   {
-    this.nombre = nombre;
     this.email = email;
     this.password = password;
   }

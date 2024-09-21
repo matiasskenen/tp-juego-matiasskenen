@@ -38,5 +38,9 @@ export class HomeComponent {
   }
 
 
+  juego1() {
+    this.router.navigate(["/juegos/juego-1"]);
+  }
+
   
 }

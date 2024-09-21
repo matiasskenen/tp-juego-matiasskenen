@@ -7,18 +7,12 @@
         <input type="text" [(ngModel)]="email" placeholder="Ingrese su Email" name="email">
         <input type="password" [(ngModel)]="password" placeholder="Ingrese su Contraseña" name="password">
         <input type="button" (click)="register()" class="button" value="Registrarse">
-
-        @if (loggedUser != "")
-        {
-          <p>Usuario Registrado</p>
-        }
-        @if (flagError)
-        {
-          <p>{{msjError}}</p>
-        }
-
+        
+        <!-- Condiciones de ejemplo (debes adaptarlas a Angular si no lo están) -->
+        <p *ngIf="loggedUser !== ''">Usuario Registrado</p>
+        <p *ngIf="flagError">{{msjError}}</p>
       </form>
-      
+
       <div class="botones">
         <button type="button" class="botones-autocompletar" (click)="autocompletar('matias.skenen@gmail.com', '123456')">Usuario 1</button>
         <button type="button" class="botones-autocompletar" (click)="autocompletar('lucasmansini@gmail.com', '123456')">Usuario 2</button>
@@ -26,10 +20,13 @@
       </div>
 
       <div class="signup">
-        <button (click)="redirectToLogin()">
-          Inciar Sesion
-        </button>
+        <button class="signup" (click)="redirectToLogin()">Iniciar Sesion</button>
       </div>
+    </div>
+
+    <!-- Loader centrado y controlado con *ngIf -->
+    <div class="loader-container" *ngIf="isLoading">
+      <span class="loader"></span>
     </div>
   </div>
 </body>

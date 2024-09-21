@@ -1,0 +1,65 @@
+<body>
+    <div class="ahorcado-container">
+      <!-- Título del juego -->
+      <h1>Juego del Ahorcado</h1>
+    
+      <!-- Imagen del ahorcado -->
+      <div class="hangman-image">
+        <img src="assets/ahorcado0.png" alt="Ahorcado" id="ahorcado-img">
+      </div>
+    
+      <!-- Palabra secreta oculta -->
+      <div class="secret-word">
+        <h1>{{ hiddePalabra }}</h1>
+      </div>
+    
+      <!-- Mensaje de fin del juego -->
+    
+      <div class="keyboard">
+        <!-- Fila 1 -->
+        <div class="row">
+          <button (click)="letraSeleccionada('Q')">Q</button>
+          <button (click)="letraSeleccionada('W')">W</button>
+          <button (click)="letraSeleccionada('E')">E</button>
+          <button (click)="letraSeleccionada('R')">R</button>
+          <button (click)="letraSeleccionada('T')">T</button>
+          <button (click)="letraSeleccionada('Y')">Y</button>
+          <button (click)="letraSeleccionada('U')">U</button>
+          <button (click)="letraSeleccionada('I')">I</button>
+          <button (click)="letraSeleccionada('O')">O</button>
+          <button (click)="letraSeleccionada('P')">P</button>
+        </div>
+      
+        <!-- Fila 2 -->
+        <div class="row">
+          <button (click)="letraSeleccionada('A')">A</button>
+          <button (click)="letraSeleccionada('S')">S</button>
+          <button (click)="letraSeleccionada('D')">D</button>
+          <button (click)="letraSeleccionada('F')">F</button>
+          <button (click)="letraSeleccionada('G')">G</button>
+          <button (click)="letraSeleccionada('H')">H</button>
+          <button (click)="letraSeleccionada('J')">J</button>
+          <button (click)="letraSeleccionada('K')">K</button>
+          <button (click)="letraSeleccionada('L')">L</button>
+        </div>
+      
+        <!-- Fila 3 -->
+        <div class="row">
+          <button (click)="letraSeleccionada('Z')">Z</button>
+          <button (click)="letraSeleccionada('X')">X</button>
+          <button (click)="letraSeleccionada('C')">C</button>
+          <button (click)="letraSeleccionada('V')">V</button>
+          <button (click)="letraSeleccionada('B')">B</button>
+          <button (click)="letraSeleccionada('N')">N</button>
+          <button (click)="letraSeleccionada('M')">M</button>
+        </div>
+
+        <!-- Letras incorrectas -->
+      <div class="wrong-letters">
+        <p>Letras incorrectas:</p>
+      </div>
+
+      </div>
+    </div>
+  </body>
+  
