@@ -24,6 +24,22 @@ export class HeaderComponent {
 
   }
 
+  toHome()
+  {
+    this.router.navigate(['/home'])
+  }
+
+  toQuiensoy()
+  {
+    this.router.navigate(['/quiensoy'])
+  }
+
+
+  toChat()
+  {
+    this.router.navigate(['/chat'])
+  }
+
   async signOut() {
     try {
       await this.auth.signOut();

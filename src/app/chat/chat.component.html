@@ -1,0 +1,31 @@
+<body>
+  <div class="chat-wrapper">
+    <div class="chat-header">
+      <h2>Chat</h2>
+    </div>
+    
+    <div class="chat-container">
+      <div class="messages" *ngIf="loginsCollection.length > 0">
+        <div *ngFor="let message of loginsCollection" 
+             class="message"
+             [ngClass]="{'yo': message.user === useractual, 'ellos': message.user !== useractual}">
+          <div class="message-content">
+            <div class="message-text">{{ message.message }}</div>
+            <div class="message-info">
+              <span class="user">{{ message.user }}</span>
+              <span class="date">{{ message.fecha}}</span> <!-- Formato de fecha -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="no-messages" *ngIf="loginsCollection.length === 0">
+        <p>No hay mensajes aún. ¡Sé el primero en enviar uno!</p>
+      </div>
+    </div>
+    
+    <div class="message-input">
+      <input [(ngModel)]="newMessage" placeholder="Escribe un mensaje..." />
+      <button (click)="send()">Enviar</button> <!-- Cambié el nombre del método -->
+    </div>
+  </div>
+</body>

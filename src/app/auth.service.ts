@@ -24,4 +24,6 @@ export class AuthService {
   async getProfile() {
     return await this.ngFireAuth.currentUser
   }
+
+  
 }

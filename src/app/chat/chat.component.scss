@@ -1,0 +1,133 @@
+body {
+    width: 100%;
+    height: 90vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 0; 
+    font-family: 'Arial', sans-serif; 
+}
+
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-header {
+    background-color: #975cca; 
+    color: #ffffff;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.6em; 
+}
+
+.chat-container {
+    flex: 1;
+    padding: 15px; 
+    background-color: #f9f9f9; 
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    overflow-y: auto;
+    width: 500px;
+}
+
+.no-messages {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+}
+
+.message {
+    max-width: 75%; 
+    padding: 12px; 
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    font-size: 0.95em; 
+}
+
+.message.yo {
+    align-self: flex-end;
+    background-color: #e1f5fe; 
+    border-bottom-right-radius: 0;
+}
+
+.message.ellos {
+    align-self: flex-start;
+    background-color: #dcedc8;
+    border-bottom-left-radius: 0;
+    border: 1px solid #b0bec5; 
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-text {
+    margin-bottom: 6px;
+}
+
+.message-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em; 
+    color: #666; 
+}
+
+.message-input {
+    display: flex;
+    gap: 12px; 
+    padding: 12px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: 1px solid #ddd;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px; 
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    border-color: #0056b3;
+}
+
+button {
+    padding: 10px 18px; 
+    border: none;
+    background-color: #0056b3;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 25px; 
+    transition: background-color 0.3s ease;
+    font-weight: bold; 
+}
+
+button:hover {
+    background-color: #004494; 
+}

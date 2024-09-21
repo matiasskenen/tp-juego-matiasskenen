@@ -2,14 +2,14 @@
     <nav>
       <div class="nav-content">
         <div class="logo">
-          <a href="/home">GAME-TIME</a>
+          <p (click)="toHome()">GAME-TIME</p>
         </div>
         <ul class="nav-links">
-          <li><a href="/quiensoy">Quien soy</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li *ngIf="!user"><a href="/login">Iniciar Sesión</a></li>
-          <li *ngIf="!user"><a href="/singin">Registrarse</a></li>
-          <li *ngIf="user"><a href="" (click)="signOut()">Cerrar sesion</a></li>
+          <li (click)="toQuiensoy()"><p>Quien soy</p></li>
+          <li (click)="toChat()"><p>Chat</p></li>
+          <li *ngIf="!user"><p><a href="/login">Iniciar Sesión</a></p></li>
+          <li *ngIf="!user"><p><a href="/singin">Registrarse</a></p></li>
+          <li *ngIf="user"><p><a href="" (click)="signOut()">Cerrar sesion</a></p></li>
           <li *ngIf="user">{{user}}</li>
         </ul>
       </div>

@@ -4,9 +4,10 @@ import { Firestore, collection, collectionData,setDoc, DocumentData, doc, addDoc
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { orderBy, query, where } from 'firebase/firestore';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { HomeComponent } from "../home/home.component";
 import { DataService } from '../service/data.service';
+import { ChatService, Message } from '../servicios/basedatos/chat.service';
 
 @Component({
   selector: 'app-login',
@@ -27,17 +28,47 @@ export class LoginComponent {
 
   isLoading = false;
 
-  public countLogins: number = 0;
-
   private sub!: Subscription;
 
+  messages: Message[] = [];
+  newMessage: string = '';
 
-
-  public loginsCollection : any [] = [];
-  constructor(private router: Router, private auth : Auth,  private userService: DataService)
+  constructor(private router: Router, private auth: Auth, private userService: DataService, private firestore: Firestore) {}
+  /*
+  getData()
   {
+    let col = collection(this.firestore, "chats");
+
+    const filteredQuery = query(
+      col, //where("user", "==", "matias.skene@gmail.com"), limit(2), orderBy("fecha", "desc")
+    );
+    
+    const observable = collectionData(filteredQuery);
+
+    this.sub = observable.subscribe((respuesta:any) => {
+      this.loginsCollection = respuesta;
+
+      console.log(respuesta);
+    })
     
   }
+    */
+/*
+  ngOnInit() {
+    this.chat.getMessages().subscribe(messages => {
+      this.messages = messages;
+    });
+  }
+
+  sendMessage() {
+    const message: Message = {
+      text: this.newMessage,
+      createdAt: new Date()
+    };
+    this.chat.sendMessage(message);
+    this.newMessage = '';
+  }
+*/
 
   loginUser()
   {
@@ -137,26 +168,9 @@ export class LoginComponent {
         
       });
   }
+      */
 
-  getData()
-  {
-    let col = collection(this.firestore, "logins");
 
-    const filteredQuery = query(
-      col, //where("user", "==", "matias.skene@gmail.com"), limit(2), orderBy("fecha", "desc")
-    );
-    
-    const observable = collectionData(filteredQuery);
-
-    this.sub = observable.subscribe((respuesta:any) => {
-      this.loginsCollection = respuesta;
-
-      this.countLogins = this.loginsCollection.length;
-
-      console.log(respuesta);
-    })
-    
-  }
-  */
+  
 
 }
