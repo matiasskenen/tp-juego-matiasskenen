@@ -15,7 +15,8 @@ export class AhorcadoComponent {
   error: boolean = true;
   acumuladorErrores : number = 0;
   imagen : string = "https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahoracado0.jpg?alt=media&token=f1cbea74-11e6-4dd5-b5d5-756219a250e7"
-
+  gameover = false;
+  win = false;
   http = inject(HttpClient);
   
   constructor(private palabras: WordsService) {
@@ -26,7 +27,7 @@ export class AhorcadoComponent {
     this.palabras.getRandomWord().subscribe(wordList => {
       // Filtrar palabras sin acentos
       const palabrasFiltradas = wordList.filter(palabra => 
-        palabra.length === 4 && !/[áéíóú]/i.test(palabra)
+        palabra.length === 6 && !/[áéíóú]/i.test(palabra)
       );
   
       // Asegúrate de que haya palabras disponibles sin acentos
@@ -43,9 +44,16 @@ export class AhorcadoComponent {
   
   letraSeleccionada(letra: string): void 
   {
-    this.error = true; // reiniciar el error para nueva letra
-    console.log(letra);
-    this.evaluarPalabra(letra);
+    if(this.gameover == false)
+    {
+      this.error = true; // reiniciar el error para nueva letra
+      console.log(letra);
+      this.evaluarPalabra(letra);
+    }else
+    {
+
+    }
+
   }
 
   evaluarPalabra(letra: string): void 
@@ -58,12 +66,13 @@ export class AhorcadoComponent {
     }
 
     if (this.error) 
-      {
+    {
       this.letraIncorrecta(letra);
     }
 
     if (!this.hiddePalabra.includes("_")) 
-      {
+    {
+      this.win = true;
       console.log("¡Ganaste!");
     }
   }
@@ -72,9 +81,16 @@ export class AhorcadoComponent {
   {
     this.acumuladorErrores += 1;
     this.incorrectas += letra + " ";
+    this.validarImagen()
+  }
 
+  validarImagen()
+  {
     switch (this.acumuladorErrores)
     {
+      case 0:
+        this.imagen = "https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahoracado0.jpg?alt=media&token=f1cbea74-11e6-4dd5-b5d5-756219a250e7";
+      break;
       case 1:
         this.imagen = "https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahoracado1.jpg?alt=media&token=c9e9a585-43c0-4808-a5d1-70c2248ea064";
       break;
@@ -86,8 +102,21 @@ export class AhorcadoComponent {
       break;
       case 4:
         this.imagen = "https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahoracado4.jpg?alt=media&token=3a343fa3-25cf-4f7b-b310-c4095720fcff";
+        this.gameover = true;
       break;
     }
+    
+  } 
+
+  volverAjugar()
+  {
+    this.acumuladorErrores = 0;
+    this.gameover = false;
+    this.incorrectas = "";
+    this.palabraRandom()
+    this.validarImagen()
+
+
   }
 
   replaceAt(str: string, letra: string, index: number): string {

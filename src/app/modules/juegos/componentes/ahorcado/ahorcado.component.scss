@@ -1,6 +1,6 @@
 body {
     width: 100%;
-    height: 100vh; /* Ajustar para ocupar toda la pantalla */
+    height: 90vh; /* Ajustar para ocupar toda la pantalla */
     display: flex; /* Activar flexbox */
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
@@ -17,12 +17,16 @@ body {
     padding: 20px;
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: 600px;
+    width: 600px;
+    margin-top: 50px;
+    
   }
   
   .hangman-image img {
     width: 250px;
-    height: auto;
-    margin-bottom: 20px;
+    height: 150px;
+    margin-bottom: 5px;
   }
   
   .secret-word {
@@ -33,6 +37,7 @@ body {
   
   .input-section {
     margin-bottom: 20px;
+    
   }
   
   .input-section input {
@@ -42,6 +47,8 @@ body {
   }
   
   .wrong-letters {
+    margin-bottom: 500px;
+    margin-left: 50px;
     color: red;
     font-size: 18px;
   }
@@ -56,7 +63,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Espacio entre las filas */
+    gap: 10px;
+    height: 100px;
+    width: 500px;
   }
   
   .row {
@@ -83,3 +92,70 @@ body {
     background-color: #bbb;
   }
   
+  .button-gameover
+  {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    transition: background-color 0.3s;
+  }
+
+@media (max-width: 700px) 
+{
+  body{
+    width: 100%;
+  }
+  .ahorcado-container {
+    height: 450px; 
+    margin-top: 50px; 
+    width: 100%; 
+    padding: 15px; 
+  }
+
+  .hangman-image img {
+    width: 200px; 
+    height: 80px;
+    margin-bottom: 10px; 
+  }
+
+  .secret-word {
+    font-size: 18px; 
+    letter-spacing: 5px; 
+    margin-bottom: 10px;
+  }
+
+  .keyboard {
+    width: 250px; 
+    gap: 5px;
+    margin-right: 200px;
+  }
+
+  .row {
+    display: flex;
+    gap: 5px;
+  }
+
+  button {
+    width: 30px; 
+    height: 30px; 
+    font-size: 14px;
+    padding: 5px; 
+  }
+
+  .wrong-letters {
+    margin-left: 200px;
+    font-size: 14px; 
+    margin-bottom: 5px; 
+  }
+
+  .game-over {
+    font-size: 18px;
+  }
+}
+

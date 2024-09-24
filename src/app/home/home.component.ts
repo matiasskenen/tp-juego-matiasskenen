@@ -42,5 +42,10 @@ export class HomeComponent {
     this.router.navigate(["/juegos/juego-1"]);
   }
 
+  juego2() {
+    this.router.navigate(["/juegos/juego-2"]);
+  }
+  
+
   
 }

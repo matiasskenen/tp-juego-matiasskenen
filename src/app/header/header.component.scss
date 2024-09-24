@@ -105,3 +105,23 @@ h2 {
   padding: 40px 80px;
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 700px) 
+{
+  .nav-content .nav-links li {
+    margin: 8px 0; /* Ajustar el espaciado entre los elementos de la lista */
+  }
+
+  .nav-links li a,
+  .nav-links li p { 
+    font-size: 16px; /* Reducir el tamaño de la fuente de los enlaces */
+    padding: 8px 10; /* Reducir el padding de los enlaces */
+  }
+
+  nav .logo p {
+    font-size: 14px; /* Reducir el tamaño de la fuente del logo */
+    margin-bottom: 10px; /* Espacio entre el logo y el menú */
+  }
+
+  
+}

@@ -1,9 +1,8 @@
 import {
   __async,
-  __export,
   __spreadProps,
   __spreadValues
-} from "./chunk-35ENWJA4.js";
+} from "./chunk-5K356HEJ.js";
 
 // node_modules/@firebase/util/dist/index.esm2017.js
 var stringToByteArray$1 = function(str) {
@@ -254,36 +253,6 @@ var base64Decode = function(str) {
   }
   return null;
 };
-function deepExtend(target, source) {
-  if (!(source instanceof Object)) {
-    return source;
-  }
-  switch (source.constructor) {
-    case Date:
-      const dateValue = source;
-      return new Date(dateValue.getTime());
-    case Object:
-      if (target === void 0) {
-        target = {};
-      }
-      break;
-    case Array:
-      target = [];
-      break;
-    default:
-      return source;
-  }
-  for (const prop in source) {
-    if (!source.hasOwnProperty(prop) || !isValidKey(prop)) {
-      continue;
-    }
-    target[prop] = deepExtend(target[prop], source[prop]);
-  }
-  return target;
-}
-function isValidKey(key) {
-  return key !== "__proto__";
-}
 function getGlobal() {
   if (typeof self !== "undefined") {
     return self;
@@ -535,9 +504,6 @@ function replaceTemplate(template, data) {
   });
 }
 var PATTERN = /\{\$([^}]+)}/g;
-function contains(obj, key) {
-  return Object.prototype.hasOwnProperty.call(obj, key);
-}
 function isEmpty(obj) {
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
@@ -757,12 +723,6 @@ function implementsAnyMethods(obj, methods) {
 }
 function noop() {
 }
-var uuidv4 = function() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-    const r = Math.random() * 16 | 0, v = c === "x" ? r : r & 3 | 8;
-    return v.toString(16);
-  });
-};
 var MAX_VALUE_MILLIS = 4 * 60 * 60 * 1e3;
 function getModularInstance(service) {
   if (service && service._delegate) {
@@ -771,33 +731,6 @@ function getModularInstance(service) {
     return service;
   }
 }
-
-// node_modules/@firebase/app/dist/esm/index.esm2017.js
-var index_esm2017_exports = {};
-__export(index_esm2017_exports, {
-  FirebaseError: () => FirebaseError,
-  SDK_VERSION: () => SDK_VERSION,
-  _DEFAULT_ENTRY_NAME: () => DEFAULT_ENTRY_NAME2,
-  _addComponent: () => _addComponent,
-  _addOrOverwriteComponent: () => _addOrOverwriteComponent,
-  _apps: () => _apps,
-  _clearComponents: () => _clearComponents,
-  _components: () => _components,
-  _getProvider: () => _getProvider,
-  _isFirebaseApp: () => _isFirebaseApp,
-  _isFirebaseServerApp: () => _isFirebaseServerApp,
-  _registerComponent: () => _registerComponent,
-  _removeServiceInstance: () => _removeServiceInstance,
-  _serverApps: () => _serverApps,
-  deleteApp: () => deleteApp,
-  getApp: () => getApp,
-  getApps: () => getApps,
-  initializeApp: () => initializeApp,
-  initializeServerApp: () => initializeServerApp,
-  onLog: () => onLog,
-  registerVersion: () => registerVersion,
-  setLogLevel: () => setLogLevel2
-});
 
 // node_modules/@firebase/component/dist/esm/index.esm2017.js
 var Component = class {
@@ -2212,18 +2145,13 @@ function registerCoreComponents(variant) {
 registerCoreComponents("");
 
 export {
-  base64,
   base64Decode,
-  deepExtend,
-  getGlobal,
   getDefaultEmulatorHost,
   getDefaultEmulatorHostnameAndPort,
   getExperimentalSetting,
-  Deferred,
   createMockUserToken,
   getUA,
   isMobileCordova,
-  isNode,
   isBrowserExtension,
   isReactNative,
   isIE,
@@ -2231,14 +2159,12 @@ export {
   isIndexedDBAvailable,
   FirebaseError,
   ErrorFactory,
-  contains,
   isEmpty,
   deepEqual,
   querystring,
   querystringDecode,
   extractQuerystring,
   createSubscribe,
-  uuidv4,
   getModularInstance,
   Component,
   LogLevel,
@@ -2263,8 +2189,7 @@ export {
   deleteApp,
   registerVersion,
   onLog,
-  setLogLevel2 as setLogLevel,
-  index_esm2017_exports
+  setLogLevel2 as setLogLevel
 };
 /*! Bundled license information:
 
@@ -2515,6 +2440,8 @@ export {
    * See the License for the specific language governing permissions and
    * limitations under the License.
    *)
+
+@firebase/util/dist/index.esm2017.js:
   (**
    * @license
    * Copyright 2019 Google LLC
@@ -2654,4 +2581,4 @@ export {
    * limitations under the License.
    *)
 */
-//# sourceMappingURL=chunk-SVDRZV36.js.map
+//# sourceMappingURL=chunk-BDC45OZ3.js.map

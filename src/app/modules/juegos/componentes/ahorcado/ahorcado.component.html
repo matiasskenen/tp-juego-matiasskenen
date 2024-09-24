@@ -1,6 +1,15 @@
 <body>
+  
     <div class="ahorcado-container">
+
+      <p *ngIf="gameover">Perdiste</p>
+      <p *ngIf="win">Ganaste</p>
       <!-- Título del juego -->
+
+      <div *ngIf="gameover">
+        <button class="button-gameover" (click)="volverAjugar()">Volver a jugar</button>
+      </div>
+      
       <h1>Juego del Ahorcado</h1>
     
       <!-- Imagen del ahorcado -->
@@ -55,12 +64,13 @@
         </div>
 
         <!-- Letras incorrectas -->
-      <div class="wrong-letters">
-        <p>Letras Incorrectas</p>
-        <h1>{{ incorrectas }}</h1>
-      </div>
-
       </div>
     </div>
+
+    <div class="wrong-letters">
+      <p>Letras Incorrectas</p>
+      <h1>{{ incorrectas }}</h1>
+    </div>
+
   </body>
   

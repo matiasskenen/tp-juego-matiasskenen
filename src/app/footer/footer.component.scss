@@ -22,6 +22,7 @@ footer {
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 0 20px; /* Añadido padding para márgenes laterales en pantallas pequeñas */
 }
 
 .footer-about, .footer-links, .footer-contact {
@@ -60,4 +61,45 @@ footer {
 
 .footer-contact p {
     margin: 5px 0;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Cambia la disposición a columna en pantallas medianas */
+        align-items: center; /* Centra el contenido */
+        padding: 0 10px; /* Ajusta el padding para evitar el overflow */
+    }
+
+    .footer-about, .footer-links, .footer-contact {
+        min-width: 100%; /* Asegura que cada sección ocupe todo el ancho */
+        text-align: center; /* Centra el texto en cada sección */
+        margin-bottom: 20px; /* Añade margen entre secciones */
+    }
+
+    .footer-about h2, .footer-links h3, .footer-contact h3 {
+        font-size: 22px; /* Reduce el tamaño del texto en pantallas medianas */
+    }
+
+    .footer-about p, .footer-links ul, .footer-contact p {
+        font-size: 14px; /* Reduce el tamaño del texto en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 30px 0; /* Reduce el padding del footer en pantallas pequeñas */
+    }
+
+    .footer-about h2, .footer-links h3, .footer-contact h3 {
+        font-size: 20px; /* Reduce el tamaño del texto en pantallas pequeñas */
+    }
+
+    .footer-about p, .footer-links ul, .footer-contact p {
+        font-size: 14px; /* Mantiene el tamaño del texto */
+    }
+
+    .footer-links li {
+        margin-bottom: 8px; /* Reduce el margen entre enlaces */
+    }
 }

@@ -16,11 +16,11 @@ import {
   isIndexedDBAvailable,
   isSafari,
   registerVersion
-} from "./chunk-SVDRZV36.js";
+} from "./chunk-BDC45OZ3.js";
 import {
   __async,
   __superGet
-} from "./chunk-35ENWJA4.js";
+} from "./chunk-5K356HEJ.js";
 
 // node_modules/@firebase/webchannel-wrapper/dist/bloom-blob/esm/bloom_blob_es2018.js
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
@@ -18333,4 +18333,4 @@ export {
    * limitations under the License.
    *)
 */
-//# sourceMappingURL=chunk-POXEOG6Y.js.map
+//# sourceMappingURL=chunk-PWJ34GHO.js.map

@@ -89,3 +89,78 @@
     background-color: #f8f8f8; 
     background-repeat: no-repeat;
 }
+
+@media (max-width: 1000px) 
+{
+
+    .navbar {
+        justify-content: center; /* Centrar el logo en dispositivos móviles */
+    }
+
+    .contair {
+        height: 90vh; /* Ajustar altura del contenedor */
+    }
+
+    .main-card {
+        flex-direction: column; /* Cambiar disposición a columna */
+        gap: 10px; /* Reducir espacio entre tarjetas */
+    }
+
+    .card {
+        width: 100%; /* Ajustar el ancho de las tarjetas */
+        height: 300px; /* Ajustar la altura de las tarjetas */
+        margin: 10px; /* Reducir márgenes en dispositivos móviles */
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar {
+        justify-content: center; /* Centrar el logo en dispositivos móviles */
+    }
+
+    .contair {
+        height: 90vh; /* Ajustar altura del contenedor */
+        display: flex;
+        flex-direction: column; /* Disponer en columna */
+        align-items: center; /* Centrar contenido */
+        border: 1px solid red;
+        
+    }
+
+    .main-card {
+        flex-direction: column; /* Cambiar disposición a columna */
+        gap: 10px; /* Reducir espacio entre tarjetas */
+        align-items: center; /* Centrar tarjetas */
+        width: 100%; /* Ocupar el ancho completo del contenedor */
+    }
+
+    .card {
+        margin: 10px 0; /* Reducir márgenes verticales en dispositivos móviles */
+        width: 100px;; /* Hacer que las tarjetas ocupen el 90% del ancho disponible */
+        max-width: 300px; /* Limitar el ancho máximo de las tarjetas */
+    }
+
+    .card1 {
+        background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahorcado.jpg?alt=media&token=0b412d9c-c996-4ecb-9e33-4f9876ad2422);
+        background-size: contain;
+        height: 100px; /* Ajustar altura de la tarjeta */
+        background-color: #f8f8f8; 
+        background-repeat: no-repeat;
+    }
+
+    .card2 {
+        background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/cartas.jpg?alt=media&token=be839aab-2780-4586-84df-72148a8e6312);
+        background-size: contain;
+        height: 100px; /* Ajustar altura de la tarjeta */
+        background-color: #f8f8f8; 
+        background-repeat: no-repeat;
+    }
+
+    .card3 {
+        background-size: contain;
+        height: 100px; /* Ajustar altura de la tarjeta */
+        background-color: #f8f8f8; 
+        background-repeat: no-repeat;
+    }
+}
+

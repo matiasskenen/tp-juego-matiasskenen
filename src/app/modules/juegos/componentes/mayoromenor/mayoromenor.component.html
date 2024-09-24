@@ -1,1 +1,40 @@
-<p>mayoromenor works!</p>
+<body>
+    <div class="container">
+      <h1>Juego Mayor o Menor</h1>
+  
+      <div id="game">
+  
+        <div class="buttons">
+          <button id="mayor" (click)="validarMayor()">Mayor</button>
+          <button id="menor" (click)="validarMenor()">Menor</button>
+        </div>
+  
+        <div id="result"></div>
+      </div>
+      
+      <div *ngIf="cartas.length > 0"></div>
+
+
+      <div class="cartas">
+        <div *ngFor="let carta of cartas">
+          <img [src]="carta.image">
+          <h3>Cartas Robadas:</h3>
+        </div>
+        
+      <div *ngIf="juegoinicia">
+        <div *ngFor="let carta of cartasMaquina">
+          <img [src]="carta.image">
+          <h3>Cartas Recibida:</h3>
+        </div>
+      </div>
+
+
+      <p *ngIf="resultadoBool">{{resultado}}</p>
+
+    </div>
+      <button id="iniciarJuego" (click)="iniciarJuego()">Iniciar Juego</button>
+    </div>
+  
+
+
+  </body>

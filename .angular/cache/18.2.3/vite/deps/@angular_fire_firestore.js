@@ -1,4 +1,3 @@
-import "./chunk-H4VKPN7N.js";
 import {
   AbstractUserDataWriter,
   AggregateField,
@@ -115,11 +114,10 @@ import {
   waitForPendingWrites,
   where,
   writeBatch
-} from "./chunk-POXEOG6Y.js";
+} from "./chunk-PWJ34GHO.js";
 import {
   AuthInstances
-} from "./chunk-VFWFTDJD.js";
-import "./chunk-VOZLWPOW.js";
+} from "./chunk-LB5UXHJE.js";
 import {
   FirebaseApp,
   FirebaseApps,
@@ -129,10 +127,10 @@ import {
   ɵgetAllInstancesOf,
   ɵgetDefaultInstanceOf,
   ɵzoneWrap
-} from "./chunk-3UP4KBDT.js";
+} from "./chunk-SZOISJHR.js";
 import {
   registerVersion
-} from "./chunk-SVDRZV36.js";
+} from "./chunk-BDC45OZ3.js";
 import {
   InjectionToken,
   Injector,
@@ -143,7 +141,7 @@ import {
   setClassMetadata,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-KAAFJ7UE.js";
+} from "./chunk-76LNHHI2.js";
 import {
   Observable,
   concatMap,
@@ -157,9 +155,8 @@ import {
   scan,
   startWith,
   timer
-} from "./chunk-64R6JD6G.js";
-import "./chunk-D3QWRFYF.js";
-import "./chunk-35ENWJA4.js";
+} from "./chunk-5A2N2EHL.js";
+import "./chunk-5K356HEJ.js";
 
 // node_modules/rxfire/firestore/index.esm.js
 var __assign = function() {
