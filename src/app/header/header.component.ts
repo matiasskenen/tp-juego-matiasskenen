@@ -18,10 +18,19 @@ export class HeaderComponent {
 
   constructor(private router: Router, private authService: DataService, private auth : Auth,  private userService: DataService)
   {
-    this.authService.currentUser.subscribe((user) => {
-      this.user = user;
-    });
+    this.checkUser();
+  }
 
+  checkUser()
+  {
+    this.authService.getUserNow().subscribe((user) => {
+      if (user) {
+        this.user = user.email;
+        console.log('Usuario:', this.user);
+      } else {
+        console.log('No hay usuario disponible.');
+      }
+    });
   }
 
   toHome()
@@ -43,7 +52,7 @@ export class HeaderComponent {
   async signOut() {
     try {
       await this.auth.signOut();
-      this.router.navigate(['/login']); // Redirige al usuario a la página de inicio de sesión
+      this.router.navigate(['/login']);
     } catch (error) {
       console.error('Error signing out:', error);
     }

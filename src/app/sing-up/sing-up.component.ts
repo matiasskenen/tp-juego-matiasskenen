@@ -1,14 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { confirmarCalveValidator } from '../validadores/clave.validator'; 
 import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sing-up',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './sing-up.component.html',
   styleUrl: './sing-up.component.scss'
 })
@@ -24,9 +26,48 @@ export class SingUpComponent {
   
   isLoading = false;
 
-  constructor(public auth: Auth, private router : Router,  private userService: DataService){
+  form! : FormGroup;
+
+  constructor(public auth: Auth, private router : Router,  private userService: DataService, private fb: FormBuilder)
+  {
 
   }
+
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      nombre: new FormControl("", [Validators.pattern('^[a-zA-Z]+$')]),
+      edad: new FormControl("", Validators.min(18)),
+      mail: new FormControl("", Validators.email),
+      clave: new FormControl("", Validators.minLength(4)),
+      repiteClave: new FormControl("", Validators.required)
+  
+    }, confirmarCalveValidator());
+  }
+  
+  get usuario() {
+    return this.form.get('usuario');
+  }
+  get nombre() {
+    return this.form.get('nombre');
+  }
+  get edad() {
+    return this.form.get('edad');
+  }
+  get mail() {
+    return this.form.get('mail');
+  }
+  get clave() {
+    return this.form.get('clave');
+  }
+  get repiteClave() {
+    return this.form.get('repiteClave');
+  }
+
+  enviarForm() {
+    console.log(this.form.value);
+    
+  }
+
 
   register()
   {
@@ -51,7 +92,7 @@ export class SingUpComponent {
       switch(e.code)
       {
         case "auth/weak-password":
-          this.msjError = "Contraseña demasiado corta.";
+          this.msjError = "Contraseña demasiado corta. Minimo 6 caracteres.";
           break;
         case "auth/invalid-email":
           this.msjError = "Correo electrónico no válido.";

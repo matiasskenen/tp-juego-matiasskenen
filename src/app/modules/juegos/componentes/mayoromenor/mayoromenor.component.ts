@@ -10,8 +10,8 @@ import { timeout } from 'rxjs';
 })
 export class MayoromenorComponent 
 {
-  mazoId: string = "";
-  cartas: any[] = [];
+  mazoIdJugador: string = "";
+  cartasJugador: any[] = [];
   valorjugador : string = "";
 
   mazoIdMaquina: string = "";
@@ -29,33 +29,31 @@ export class MayoromenorComponent
 
   async iniciarJuego() {
     // Crear el mazo
-    this.mazoId = await this.cartasServicio.crearMazo();
-    console.log("El mazo fue creado con el ID: ", this.mazoId);
+    this.mazoIdJugador = await this.cartasServicio.crearMazo();
+    console.log("El mazo fue creado con el ID: ", this.mazoIdJugador);
 
     // Robar cartas
-    this.cartas = await this.cartasServicio.robarCartas(this.mazoId, 1);
-    console.log("Las cartas robadas son: ", this.cartas);
+    this.cartasJugador = await this.cartasServicio.robarCartas(this.mazoIdJugador, 1);
+    console.log("Las cartas robadas son: ", this.cartasJugador);
 
-    this.cartas.forEach(carta => {
+    this.cartasJugador.forEach(carta => {
       console.log("El valor de la carta es: ", carta.value);
       this.valorjugador = carta.value;
     });
   }
 
-  async juegoMaquina() {
+  async juegoMaquina() 
+  {
     this.juegoinicia = true;
-    // Crear el mazo
-    this.mazoIdMaquina = await this.cartasServicio.crearMazo();
-    console.log("El mazo fue creado con el ID: ", this.mazoIdMaquina);
 
-    // Robar cartas
-    this.cartasMaquina = await this.cartasServicio.robarCartas(this.mazoIdMaquina, 1);
+    this.cartasMaquina = await this.cartasServicio.robarCartas(this.mazoIdJugador, 1);
     console.log("Las cartas robadas son: ", this.cartasMaquina);
 
     this.cartasMaquina.forEach(carta => {
       console.log("El valor de la carta es: ", carta.value);
       this.valorMaquina = carta.value;
     });
+
   }
 
   async validarMayor() {
@@ -64,7 +62,7 @@ export class MayoromenorComponent
     // Convertir el valor del jugador y el de la máquina a números
     const valorJugador = this.convertirValorANumero(this.valorjugador);
     const valorMaquina = this.convertirValorANumero(this.valorMaquina);
-
+    
     if (valorJugador > valorMaquina) {
       this.resultado = "Perdiste";
     } else if (valorJugador < valorMaquina) {
@@ -72,15 +70,15 @@ export class MayoromenorComponent
     } else {
       this.resultado = "empate";
     }
+    
 
     console.log("Validar MAYOR: JUGADOR: " + valorJugador)
     console.log("Validar MAYOR: Maquina: " + valorMaquina)
-    this.resultadoBool = true;
 
-    setTimeout(() => {
-      this.juegoinicia = false;
-      this.resultadoBool = false;
-    }, 5000);
+    this.resultadoBool = true;
+    this.cartasJugador = this.cartasMaquina;
+    this.valorjugador = this.valorMaquina;
+
   }
 
   async validarMenor() {
@@ -91,9 +89,9 @@ export class MayoromenorComponent
     const valorMaquina = this.convertirValorANumero(this.valorMaquina);
 
     if (valorJugador < valorMaquina) {
-      this.resultado = "Ganaste";
-    } else if (valorJugador > valorMaquina) {
       this.resultado = "Perdiste";
+    } else if (valorJugador > valorMaquina) {
+      this.resultado = "Ganaste";
     } else {
       this.resultado = "empate";
     }
@@ -102,16 +100,14 @@ export class MayoromenorComponent
     console.log("Validar Menor: Maquina: " + valorMaquina)
     this.resultadoBool = true;
 
-    setTimeout(() => {
-      this.juegoinicia = false;
-      this.resultadoBool = false;
-    }, 5000);
+    this.valorjugador = this.valorMaquina;
+    this.cartasJugador = this.cartasMaquina;
   }
   
   convertirValorANumero(valor: string) {
     switch (valor) {
       case "ACE":
-        return 14;
+        return 1;
       case "KING":
         return 13;
       case "QUEEN":

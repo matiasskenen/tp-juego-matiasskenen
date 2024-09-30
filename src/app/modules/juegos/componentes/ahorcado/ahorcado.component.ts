@@ -76,6 +76,10 @@ export class AhorcadoComponent {
       console.log("¡Ganaste!");
     }
   }
+  
+  replaceAt(str: string, letra: string, index: number): string {
+    return str.substr(0, index) + letra + str.substr(index + 1);
+  }
 
   letraIncorrecta(letra: string): void 
   {
@@ -119,7 +123,5 @@ export class AhorcadoComponent {
 
   }
 
-  replaceAt(str: string, letra: string, index: number): string {
-    return str.substr(0, index) + letra + str.substr(index + 1);
-  }
+
 }

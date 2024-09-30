@@ -12,26 +12,16 @@
         <div id="result"></div>
       </div>
       
-      <div *ngIf="cartas.length > 0"></div>
+      <div *ngIf="cartasJugador.length > 0"></div>
 
 
       <div class="cartas">
-        <div *ngFor="let carta of cartas">
+        <div *ngFor="let carta of cartasJugador">
           <img [src]="carta.image">
           <h3>Cartas Robadas:</h3>
         </div>
-        
-      <div *ngIf="juegoinicia">
-        <div *ngFor="let carta of cartasMaquina">
-          <img [src]="carta.image">
-          <h3>Cartas Recibida:</h3>
-        </div>
+        <p *ngIf="resultadoBool">{{resultado}}</p>
       </div>
-
-
-      <p *ngIf="resultadoBool">{{resultado}}</p>
-
-    </div>
       <button id="iniciarJuego" (click)="iniciarJuego()">Iniciar Juego</button>
     </div>
   

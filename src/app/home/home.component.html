@@ -1,10 +1,14 @@
-
 <div class="contair">
-    <div class="card card1" (click)="juego1()"></div>
-    <div class="card card2" (click)="juego2()"></div>
-    <div class="card card3" (click)="juego1()"></div>
-</div>
-
+    <div class="card card1" (click)="juego1()">
+      <img *ngIf="isLocked" class="lock-icon" src="https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/candado.png?alt=media&token=7943cb9d-dbf1-419a-b60c-8948c0658979" alt="Candado" />
+    </div>
+    <div class="card card2" (click)="juego2()">
+      <img *ngIf="isLocked" class="lock-icon" src="https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/candado.png?alt=media&token=7943cb9d-dbf1-419a-b60c-8948c0658979" alt="Candado" />
+    </div>
+    <div class="card card3" (click)="juego2()">
+      <img *ngIf="isLocked" class="lock-icon" src="https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/candado.png?alt=media&token=7943cb9d-dbf1-419a-b60c-8948c0658979" alt="Candado" />
+    </div>
+  </div>
 
 
 <!--

@@ -7,7 +7,7 @@ import { MayoromenorComponent } from './componentes/mayoromenor/mayoromenor.comp
 
 @NgModule({
   declarations: [AhorcadoComponent, MayoromenorComponent],
-  exports: [AhorcadoComponent, MayoromenorComponent],
+  exports: [],
   imports: [
     CommonModule,
     JuegosRoutingModule

@@ -3,9 +3,58 @@
     <input type="checkbox" id="check">
     <div class="login form">
       <header>Registrarse</header>
-      <form action="#">
-        <input type="text" [(ngModel)]="email" placeholder="Ingrese su Email" name="email">
-        <input type="password" [(ngModel)]="password" placeholder="Ingrese su Contraseña" name="password">
+      <form [formGroup]="form" (ngSubmit)="enviarForm()">
+
+        <div class="row">
+          <div class="form-control-group col-5">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre">
+            <ng-container *ngIf="nombre?.hasError('pattern')">
+              <small class="text-danger">Sólo debe contener solo letras</small>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-control-group col-5">
+            <label class="form-label" for="mail">Mail</label>
+            <input type="email" class="form-control" id="mail" formControlName="mail">
+            
+            <ng-container *ngIf="mail?.hasError('mail')">
+              <small class="text-danger">Formato inválido</small>
+            </ng-container>
+          </div>
+        </div>
+  
+        <div class="form-control-group col-5">
+          <label class="form-label" for="edad">Edad</label>
+          <input type="number" class="form-control" id="edad" formControlName="edad">
+          <ng-container *ngIf="edad?.hasError('min')">
+            <small class="text-danger">Debe ser mayor de edad</small>
+          </ng-container>
+        </div>
+        
+  
+        <div class="row">
+          <div class="form-control-group col-5">
+            <label class="form-label" for="clave">Clave</label>
+            <input type="password" class="form-control" id="clave" formControlName="clave" [(ngModel)]="password">
+            <ng-container *ngIf="clave?.hasError('minlength')">
+              <small class="text-danger">
+                La clave debe tener mínimo {{clave?.getError('minlength').requiredLength}} caracteres
+              </small>
+            </ng-container>
+          </div>
+  
+          <div class="form-control-group col-5">
+            <label class="form-label" for="repiteClave">Repite clave</label>
+            <input type="password" class="form-control" id="repiteClave" formControlName="repiteClave">
+            <small class="text-danger">
+              {{repiteClave?.getError('noCoincide')}}
+            </small>
+          </div>
+        </div>
+
         <input type="button" (click)="register()" class="button" value="Registrarse">
         
         <!-- Condiciones de ejemplo (debes adaptarlas a Angular si no lo están) -->
@@ -28,5 +77,16 @@
     <div class="loader-container" *ngIf="isLoading">
       <span class="loader"></span>
     </div>
+
+    <form [formGroup]="form" (ngSubmit)="enviarForm()">
+
+          <input type="email" class="form-control" id="mail" formControlName="mail">
+
+
+    </form>
+
   </div>
+
+  
+
 </body>

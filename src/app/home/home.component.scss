@@ -2,64 +2,74 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.navbar {
+  }
+  
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f8f8f8; /* Blanco grisáceo */
     padding: 15px;
-}
-
-.navbar-brand {
+  }
+  
+  .navbar-brand {
     color: rgb(0, 0, 0);
     font-size: 1.5rem;
     font-weight: bold;
-}
-
-.navbar-links {
+  }
+  
+  .navbar-links {
     list-style: none;
     display: flex;
     gap: 20px;
-}
-
-.navbar-links li {
+  }
+  
+  .navbar-links li {
     display: inline;
-}
-
-.navbar-links a {
+  }
+  
+  .navbar-links a {
     color: black;
     text-decoration: none;
     font-size: 1.1rem;
-}
-
-.navbar-links a:hover {
+  }
+  
+  .navbar-links a:hover {
     text-decoration: underline;
-}
-
-.contair {
+  }
+  
+  .lock-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 80%;
+  }
+  
+  .contair {
     width: 100%;
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom, #0f0c29, #302b63, #b06dbd);
-}
-
-.main-card {
+  }
+  
+  .main-card {
     display: flex;
     justify-content: center;
-    align-items: center; 
-    gap: 20px; 
+    align-items: center;
+    gap: 20px;
     padding: 20px;
     background-color: #f5f5f5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     text-align: center;
-}
-
-.card {
+  }
+  
+  .card {
+    position: relative;
     width: 300px;
     height: 350px;
     border: none;
@@ -68,99 +78,95 @@
     box-shadow: 0px 0px 10px 1px #000000;
     transition: transform 0.3s ease;
     margin: 50px;
-}
-
-.card:hover {
+  }
+  
+  .card:hover {
     transform: scale(1.1);
     cursor: pointer;
-}
-.card1
-{
+  }
+  
+  .card1 {
     background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahorcado.jpg?alt=media&token=0b412d9c-c996-4ecb-9e33-4f9876ad2422);
     background-size: contain;
-    background-color: #f8f8f8; 
+    background-color: #f8f8f8;
     background-repeat: no-repeat;
-}
-
-.card2
-{
+  }
+  
+  .card2 {
     background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/cartas.jpg?alt=media&token=be839aab-2780-4586-84df-72148a8e6312);
     background-size: cover;
-    background-color: #f8f8f8; 
+    background-color: #f8f8f8;
     background-repeat: no-repeat;
-}
-
-@media (max-width: 1000px) 
-{
-
+  }
+  
+  @media (max-width: 1000px) {
     .navbar {
-        justify-content: center; /* Centrar el logo en dispositivos móviles */
+      justify-content: center; /* Centrar el logo en dispositivos móviles */
     }
-
+  
     .contair {
-        height: 90vh; /* Ajustar altura del contenedor */
+      height: 90vh; /* Ajustar altura del contenedor */
     }
-
+  
     .main-card {
-        flex-direction: column; /* Cambiar disposición a columna */
-        gap: 10px; /* Reducir espacio entre tarjetas */
+      flex-direction: column; /* Cambiar disposición a columna */
+      gap: 10px; /* Reducir espacio entre tarjetas */
     }
-
+  
     .card {
-        width: 100%; /* Ajustar el ancho de las tarjetas */
-        height: 300px; /* Ajustar la altura de las tarjetas */
-        margin: 10px; /* Reducir márgenes en dispositivos móviles */
+      width: 100%; /* Ajustar el ancho de las tarjetas */
+      height: 300px; /* Ajustar la altura de las tarjetas */
+      margin: 10px; /* Reducir márgenes en dispositivos móviles */
     }
-}
-
-@media (max-width: 400px) {
+  }
+  
+  @media (max-width: 400px) {
     .navbar {
-        justify-content: center; /* Centrar el logo en dispositivos móviles */
+      justify-content: center; /* Centrar el logo en dispositivos móviles */
     }
-
+  
     .contair {
-        height: 90vh; /* Ajustar altura del contenedor */
-        display: flex;
-        flex-direction: column; /* Disponer en columna */
-        align-items: center; /* Centrar contenido */
-        border: 1px solid red;
-        
+      height: 90vh; /* Ajustar altura del contenedor */
+      display: flex;
+      flex-direction: column; /* Disponer en columna */
+      align-items: center; /* Centrar contenido */
+      border: 1px solid red;
     }
-
+  
     .main-card {
-        flex-direction: column; /* Cambiar disposición a columna */
-        gap: 10px; /* Reducir espacio entre tarjetas */
-        align-items: center; /* Centrar tarjetas */
-        width: 100%; /* Ocupar el ancho completo del contenedor */
+      flex-direction: column; /* Cambiar disposición a columna */
+      gap: 10px; /* Reducir espacio entre tarjetas */
+      align-items: center; /* Centrar tarjetas */
+      width: 100%; /* Ocupar el ancho completo del contenedor */
     }
-
+  
     .card {
-        margin: 10px 0; /* Reducir márgenes verticales en dispositivos móviles */
-        width: 100px;; /* Hacer que las tarjetas ocupen el 90% del ancho disponible */
-        max-width: 300px; /* Limitar el ancho máximo de las tarjetas */
+      margin: 10px 0; /* Reducir márgenes verticales en dispositivos móviles */
+      width: 100px; /* Hacer que las tarjetas ocupen el 90% del ancho disponible */
+      max-width: 300px; /* Limitar el ancho máximo de las tarjetas */
     }
-
+  
     .card1 {
-        background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahorcado.jpg?alt=media&token=0b412d9c-c996-4ecb-9e33-4f9876ad2422);
-        background-size: contain;
-        height: 100px; /* Ajustar altura de la tarjeta */
-        background-color: #f8f8f8; 
-        background-repeat: no-repeat;
+      background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/ahorcado.jpg?alt=media&token=0b412d9c-c996-4ecb-9e33-4f9876ad2422);
+      background-size: contain;
+      height: 100px; /* Ajustar altura de la tarjeta */
+      background-color: #f8f8f8;
+      background-repeat: no-repeat;
     }
-
+  
     .card2 {
-        background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/cartas.jpg?alt=media&token=be839aab-2780-4586-84df-72148a8e6312);
-        background-size: contain;
-        height: 100px; /* Ajustar altura de la tarjeta */
-        background-color: #f8f8f8; 
-        background-repeat: no-repeat;
+      background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/cartas.jpg?alt=media&token=be839aab-2780-4586-84df-72148a8e6312);
+      background-size: contain;
+      height: 100px; /* Ajustar altura de la tarjeta */
+      background-color: #f8f8f8;
+      background-repeat: no-repeat;
     }
-
+  
     .card3 {
-        background-size: contain;
-        height: 100px; /* Ajustar altura de la tarjeta */
-        background-color: #f8f8f8; 
-        background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px; /* Ajustar altura de la tarjeta */
+      background-color: #f8f8f8;
+      background-repeat: no-repeat;
     }
-}
-
+  }
+  

@@ -35,6 +35,9 @@ export class LoginComponent {
 
   constructor(private router: Router, private auth: Auth, private userService: DataService, private firestore: Firestore) {}
   /*
+
+  
+
   getData()
   {
     let col = collection(this.firestore, "chats");
