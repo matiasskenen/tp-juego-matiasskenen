@@ -2,8 +2,13 @@
   
     <div class="ahorcado-container">
 
-      <p *ngIf="gameover">Perdiste</p>
-      <p *ngIf="win">Ganaste</p>
+      <div *ngIf="mostrarResultado" class="container-resultado">
+        <p class="resultado" *ngIf="gameover">Perdiste</p>
+        <p class="resultado" *ngIf="win">Ganaste</p>
+      </div>
+
+      
+
       <!-- Título del juego -->
 
       <div *ngIf="gameover">
@@ -70,6 +75,11 @@
     <div class="wrong-letters">
       <p>Letras Incorrectas</p>
       <h1>{{ incorrectas }}</h1>
+    </div>
+
+    <div class="puntuacion">
+      <p>Puntuacion</p>
+      <h1>{{ puntuacion }}</h1>
     </div>
 
   </body>

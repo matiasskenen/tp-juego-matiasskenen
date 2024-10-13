@@ -25,11 +25,23 @@ export class ChatComponent
   useractual : any;
   newMessage: string = '';
 
+  isLocked = true;
+
   constructor(private firestore: Firestore, private auth: Auth, private dataservice : DataService) 
   {
     console.log(auth.currentUser?.email);
     this.useractual = auth.currentUser?.email;
     this.getData()
+
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.isLocked = false;
+        console.log("Usuario autenticado:", user);
+        this.dataservice.setUser(user)
+      } else {
+        console.log("No hay usuario autenticado.");
+      }
+    });
 
   }
 
@@ -39,7 +51,7 @@ export class ChatComponent
 
     const filteredQuery = query(
       col, 
-      orderBy('fecha', 'asc'), // Ordena los mensajes por fecha en orden descendente
+      orderBy('fecha', 'desc'), // Ordena los mensajes por fecha en orden descendente
     );
 
     const observable = collectionData(filteredQuery);
@@ -51,12 +63,24 @@ export class ChatComponent
   
   }
 
-  send() 
-  {
+send() {
+  if(this.isLocked == false) {
     let col = collection(this.firestore, 'chats');
 
+    // Cambiamos el formato de la fecha y hora
+    let now = new Date();
+    let formattedDate = now.toLocaleString('es-AR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false // Formato 24 horas
+    });
+
     let obj = { 
-      fecha: new Date().toLocaleString('es-AR'),
+      fecha: formattedDate,
       user: this.auth.currentUser?.email,
       message: this.newMessage
     };
@@ -69,9 +93,9 @@ export class ChatComponent
       })
       .catch((error) => {
         console.error('Error al agregar documento: ', error);
-        
       });
   }
+}
 
   sendMessage() {
     if (this.newMessage.trim() !== '') {

@@ -27,5 +27,6 @@
       <input [(ngModel)]="newMessage" placeholder="Escribe un mensaje..." />
       <button (click)="send()">Enviar</button> <!-- Cambié el nombre del método -->
     </div>
+    <img *ngIf="isLocked" class="lock-icon" src="https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/candado.png?alt=media&token=7943cb9d-dbf1-419a-b60c-8948c0658979" alt="Candado" />
   </div>
 </body>

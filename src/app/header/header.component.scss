@@ -106,6 +106,16 @@ h2 {
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.test{
+  text-decoration: none;
+  color: #0E2431;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 4px;
+  transition: all 0.3s ease;
+}
+
+
 @media (max-width: 700px) 
 {
   .nav-content .nav-links li {

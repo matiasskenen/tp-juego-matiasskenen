@@ -23,6 +23,12 @@ export class MayoromenorComponent
 
   juegoinicia : boolean = false;
 
+  puntuacion = 0;
+  vidas = 3;
+
+  mostrarResultado = false;
+  resultadoJuego! : string;
+
   constructor(private cartasServicio: CartasService) 
   {
   }
@@ -56,53 +62,89 @@ export class MayoromenorComponent
 
   }
 
-  async validarMayor() {
-    await this.juegoMaquina();  // Esperar que se robe la carta de la máquina
+  async validarMayor() 
+  {
+    if(this.vidas != 0)
+    {
+      await this.juegoMaquina();  // Esperar que se robe la carta de la máquina
 
-    // Convertir el valor del jugador y el de la máquina a números
-    const valorJugador = this.convertirValorANumero(this.valorjugador);
-    const valorMaquina = this.convertirValorANumero(this.valorMaquina);
-    
-    if (valorJugador > valorMaquina) {
-      this.resultado = "Perdiste";
-    } else if (valorJugador < valorMaquina) {
-      this.resultado = "Ganaste";
-    } else {
-      this.resultado = "empate";
+      // Convertir el valor del jugador y el de la máquina a números
+      const valorJugador = this.convertirValorANumero(this.valorjugador);
+      const valorMaquina = this.convertirValorANumero(this.valorMaquina);
+      
+      if (valorJugador > valorMaquina) {
+        this.resultado = "Perdiste";
+        this.vidas -= 1;
+      } else if (valorJugador < valorMaquina) {
+        this.resultado = "Ganaste";
+        this.puntuacion += 1;
+      } else {
+        this.resultado = "empate";
+      }
+      
+  
+      console.log("Validar MAYOR: JUGADOR: " + valorJugador)
+      console.log("Validar MAYOR: Maquina: " + valorMaquina)
+  
+      this.resultadoBool = true;
+      this.cartasJugador = this.cartasMaquina;
+      this.valorjugador = this.valorMaquina;
     }
-    
+    else
+    {
+      this.mostrarResultado = true;
+      this.resultadoJuego = "Perdiste"
 
-    console.log("Validar MAYOR: JUGADOR: " + valorJugador)
-    console.log("Validar MAYOR: Maquina: " + valorMaquina)
+      setTimeout(() => {
+        this.mostrarResultado = false;
+        this.vidas = 3;
+        this.iniciarJuego();
+      }, 1000);
 
-    this.resultadoBool = true;
-    this.cartasJugador = this.cartasMaquina;
-    this.valorjugador = this.valorMaquina;
-
+    }
   }
 
-  async validarMenor() {
-    await this.juegoMaquina();  // Esperar que se robe la carta de la máquina
+  async validarMenor() 
+  {
+    if(this.vidas != 0)
+    {
+      await this.juegoMaquina();  // Esperar que se robe la carta de la máquina
 
-    // Convertir el valor del jugador y el de la máquina a números
-    const valorJugador = this.convertirValorANumero(this.valorjugador);
-    const valorMaquina = this.convertirValorANumero(this.valorMaquina);
-
-    if (valorJugador < valorMaquina) {
-      this.resultado = "Perdiste";
-    } else if (valorJugador > valorMaquina) {
-      this.resultado = "Ganaste";
-    } else {
-      this.resultado = "empate";
+      // Convertir el valor del jugador y el de la máquina a números
+      const valorJugador = this.convertirValorANumero(this.valorjugador);
+      const valorMaquina = this.convertirValorANumero(this.valorMaquina);
+  
+      if (valorJugador < valorMaquina) {
+        this.resultado = "Perdiste";
+        this.vidas -= 1;
+      } else if (valorJugador > valorMaquina) {
+        this.resultado = "Ganaste";
+        this.puntuacion += 1;
+      } else {
+        this.resultado = "empate";
+      }
+  
+      console.log("Validar Menor: JUGADOR: " + valorJugador)
+      console.log("Validar Menor: Maquina: " + valorMaquina)
+      this.resultadoBool = true;
+  
+      this.valorjugador = this.valorMaquina;
+      this.cartasJugador = this.cartasMaquina;
     }
+    else
+    {
+      this.mostrarResultado = true;
+      this.resultadoJuego = "Perdiste"
 
-    console.log("Validar Menor: JUGADOR: " + valorJugador)
-    console.log("Validar Menor: Maquina: " + valorMaquina)
-    this.resultadoBool = true;
+      setTimeout(() => {
+        this.mostrarResultado = false;
+        this.vidas = 3;
+        this.iniciarJuego();
+      }, 1000);
 
-    this.valorjugador = this.valorMaquina;
-    this.cartasJugador = this.cartasMaquina;
+    }
   }
+
   
   convertirValorANumero(valor: string) {
     switch (valor) {

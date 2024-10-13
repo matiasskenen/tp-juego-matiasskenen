@@ -1,0 +1,27 @@
+<body>
+    <div class="game-container">
+        <div class="card">
+            <div *ngIf="resultado" class="result-message">
+                <h2>{{resultado}}</h2>
+            </div>
+
+            <img src="{{imagen}}" alt="Imagen de Pregunta 1" class="question-image">
+            <h3 class="question">¿Como se llama este personaje?</h3>
+            <div class="options">
+                <button (click)="validarBoton(1)" class="option">{{valor1}}</button>
+                <button (click)="validarBoton(2)" class="option">{{valor2}}</button>
+                <button (click)="validarBoton(3)" class="option">{{valor3}}</button>
+            </div>
+        </div>
+        <div class="info-container">
+            <div class="puntuacion">
+              <p>Puntuacion</p>
+              <h1>{{ puntuacion }}</h1>
+            </div>
+            <div class="vidas">
+              <p>Vidas</p>
+              <h1>{{ vidas }}</h1>
+            </div>
+          </div>
+    </div>
+</body>

@@ -1,7 +1,12 @@
 <body>
     <div class="container">
+
+      <div *ngIf="mostrarResultado" class="container-resultado">
+        <p class="resultado">{{resultadoJuego}}</p>
+      </div>
+
       <h1>Juego Mayor o Menor</h1>
-  
+      
       <div id="game">
   
         <div class="buttons">
@@ -18,11 +23,19 @@
       <div class="cartas">
         <div *ngFor="let carta of cartasJugador">
           <img [src]="carta.image">
-          <h3>Cartas Robadas:</h3>
         </div>
         <p *ngIf="resultadoBool">{{resultado}}</p>
       </div>
       <button id="iniciarJuego" (click)="iniciarJuego()">Iniciar Juego</button>
+    </div>
+
+    <div class="puntuacion">
+      <p>Puntuacion</p>
+      <h1>{{ puntuacion }}</h1>
+    </div>
+    <div class="vidas">
+      <p>Vidas</p>
+      <h1>{{ vidas }}</h1>
     </div>
   
 

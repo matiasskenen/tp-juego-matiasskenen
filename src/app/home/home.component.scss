@@ -98,6 +98,18 @@
     background-color: #f8f8f8;
     background-repeat: no-repeat;
   }
+  .card3 {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/preguntados.jpg?alt=media&token=04fca781-a7e5-4706-888f-3d58c80c7f27);
+    background-size: cover;
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+  }
+  .card4 {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/wally2.jpg?alt=media&token=f9b8cea6-5c41-4959-ae4f-3a71134ff2a1);
+    background-size: cover;
+    background-color: #f8f8f8;
+    background-repeat: no-repeat;
+  }
   
   @media (max-width: 1000px) {
     .navbar {
@@ -163,6 +175,7 @@
     }
   
     .card3 {
+      background-image: url(https://firebasestorage.googleapis.com/v0/b/tp-juegos-labo4.appspot.com/o/preguntados.jpg?alt=media&token=04fca781-a7e5-4706-888f-3d58c80c7f27);
       background-size: contain;
       height: 100px; /* Ajustar altura de la tarjeta */
       background-color: #f8f8f8;

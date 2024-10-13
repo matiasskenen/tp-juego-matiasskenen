@@ -10,7 +10,7 @@
           <li *ngIf="!user"><p><a href="/login">Iniciar Sesión</a></p></li>
           <li *ngIf="!user"><p><a href="/singin">Registrarse</a></p></li>
           <li *ngIf="user"><p><a href="" (click)="signOut()">Cerrar sesion</a></p></li>
-          <li *ngIf="user">{{user}}</li>
+          <li class="test" *ngIf="user">{{user}}</li>
         </ul>
       </div>
     </nav>

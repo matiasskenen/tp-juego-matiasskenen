@@ -1,0 +1,15 @@
+<body>
+    <div class="container">
+        <div class="container">
+            <img src="{{ imagen }}" alt="Descripción del juego" class="game-image main-image">
+            <img 
+                src="{{ imagenjugador }}" 
+                alt="Descripción del jugador" 
+                class="game-image player-image" 
+                [ngStyle]="{'top.px': playerPosition.y, 'left.px': playerPosition.x}"
+            >
+        </div>
+        <button class="start-button" (click)="randomizePlayerPosition()">Iniciar Juego</button>
+        <button class="start-button" (click)="jugador()">Iniciar Juego</button>
+    </div>
+</body>

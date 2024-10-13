@@ -63,6 +63,21 @@ export class HomeComponent {
       this.router.navigate(["/juegos/juego-2"]);
     }
   }
+
+  juego3() 
+  {
+    if(this.isLocked == false)
+    {
+      this.router.navigate(["/juegos/juego-3"]);
+    }
+  }
+  juego4() 
+  {
+    if(this.isLocked == false)
+    {
+      this.router.navigate(["/juegos/juego-4"]);
+    }
+  }
   
 
   
