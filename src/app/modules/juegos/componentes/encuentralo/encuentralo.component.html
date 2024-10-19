@@ -1,15 +1,31 @@
 <body>
     <div class="container">
-        <div class="container">
-            <img src="{{ imagen }}" alt="Descripción del juego" class="game-image main-image">
+        <div class="loader-container" *ngIf="isLoading">
+            <span class="loader"></span>
+        </div>
+
+        <div class="timer">
+            Tiempo: {{ getFormattedTime() }}
+        </div>
+        <div class="timer">
+            Puntuaje: {{ puntuacion }}
+        </div>
+        <div *ngIf="resultado" class="timer">
+            Resultado: {{ resultado }}
+        </div>
+
+        <div class="image-container">
+            <img #mainImage src="{{ imagen }}" alt="Descripción del juego" class="game-image main-image">
             <img 
+                (click)="jugador()"
                 src="{{ imagenjugador }}" 
                 alt="Descripción del jugador" 
                 class="game-image player-image" 
                 [ngStyle]="{'top.px': playerPosition.y, 'left.px': playerPosition.x}"
+                *ngIf="juegoinica"
             >
         </div>
-        <button class="start-button" (click)="randomizePlayerPosition()">Iniciar Juego</button>
-        <button class="start-button" (click)="jugador()">Iniciar Juego</button>
+
+        <button class="start-button" (click)="startTimer()">Iniciar Juego</button>
     </div>
 </body>

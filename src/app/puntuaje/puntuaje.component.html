@@ -1,0 +1,29 @@
+<body>
+    <div class="score-container">
+        <h2>Tabla de Puntuación</h2>
+        <button (click)="valor('preguntados')">Preguntados</button>
+        <button (click)="valor('mayorMenor')">MayorMenor</button>
+        <button (click)="valor('encuentralo')">Encuentralo</button>
+        <button (click)="valor('ahorcado')">Ahorcado</button>
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Jugador</th>
+                    <th>Juego</th>
+                    <th>Puntuación</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of puntuaciones; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.nombre || 'Desconocido' }}</td>
+                    <td>{{ item.juego }}</td>
+                    <td>{{ item.puntos }}</td>
+                    <td>{{ item.fecha }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

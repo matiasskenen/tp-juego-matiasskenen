@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PuntuajeService } from '../../../../servicios/puntuaje.service';
+import { DataService } from '../../../../service/data.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-preguntados',
@@ -26,10 +29,13 @@ export class PreguntadosComponent {
   respuestaMaquina! : string;
   resultado!:any;
 
+  nombreJugador : any;
+
   puntuacion = 0;
   vidas = 3;
-  constructor()
+  constructor(private puntuajeService: PuntuajeService, private authService: Auth)
   {
+    this.nombreJugador = authService.currentUser?.email;
     this.getCharacters()
   }
 
@@ -78,56 +84,49 @@ export class PreguntadosComponent {
     }
   };
 
-  validarBoton(valor:number)
-  {
-    switch(valor)
-    {
+  validarBoton(valor: number) {
+    switch (valor) {
       case 1:
-        if(this.valor1 == this.respuestaMaquina)
-        {
+        if (this.valor1 == this.respuestaMaquina) {
           this.puntuacion += 1;
-          this.resultado = "Ganaste"
-        }
-        else
-        {
-          this.resultado = "Perdiste"
+          this.resultado = "Ganaste";
+        } else {
+          this.resultado = "Perdiste";
           this.vidas -= 1;
         }
-
-
-      break;
+        break;
       case 2:
-        if(this.valor2 == this.respuestaMaquina)
-          {
-            this.puntuacion += 1;
-            this.resultado = "Ganaste"
-          }
-          else
-          {
-            this.resultado = "Perdiste"
-            this.vidas -= 1;
-          }
-      break;
+        if (this.valor2 == this.respuestaMaquina) {
+          this.puntuacion += 1;
+          this.resultado = "Ganaste";
+        } else {
+          this.resultado = "Perdiste";
+          this.vidas -= 1;
+        }
+        break;
       case 3:
-        if(this.valor3 == this.respuestaMaquina)
-          {
-            this.puntuacion += 1;
-            this.resultado = "Ganaste"
-          }
-          else
-          {
-            this.resultado = "Perdiste"
-            this.vidas -= 1;
-          }
-      break;
+        if (this.valor3 == this.respuestaMaquina) {
+          this.puntuacion += 1;
+          this.resultado = "Ganaste";
+        } else {
+          this.resultado = "Perdiste";
+          this.vidas -= 1;
+        }
+        break;
     }
-
+  
+    // Si el jugador se queda sin vidas o decide terminar
+    if (this.vidas === 0) {
+      this.puntuajeService.sendPuntuaje('preguntados', this.puntuacion, this.nombreJugador);
+      console.log("enviado");
+      console.log("Juego terminado. Puntuación final enviada.");
+    }
+  
     setTimeout(() => {
       this.resultado = null;
-      this.getCharacters()
+      this.getCharacters();
       this.imagen = "";
     }, 2000);
-    
   }
 
 }

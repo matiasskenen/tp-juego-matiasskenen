@@ -7,6 +7,8 @@
         <ul class="nav-links">
           <li (click)="toQuiensoy()"><p>Quien soy</p></li>
           <li (click)="toChat()"><p>Chat</p></li>
+          <li (click)="toPuntuaje()"><p>Puntuaje</p></li>
+          <li (click)="toEncuesta()"><p>Encuesta</p></li>
           <li *ngIf="!user"><p><a href="/login">Iniciar Sesión</a></p></li>
           <li *ngIf="!user"><p><a href="/singin">Registrarse</a></p></li>
           <li *ngIf="user"><p><a href="" (click)="signOut()">Cerrar sesion</a></p></li>

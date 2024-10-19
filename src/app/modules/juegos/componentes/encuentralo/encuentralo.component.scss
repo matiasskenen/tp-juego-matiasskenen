@@ -9,46 +9,115 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to top, #89f7fe, #66a6ff);
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+
+.loader-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 800px; 
+    height: 650px; 
+    z-index: 9999; 
+}
+  
+.loader {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #FFF; 
+    border-bottom-color: #FF3D00; 
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+  
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .container {
-    text-align: center; /* Centra el texto y el botón */
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 800px;
+    position: relative; /* Para que el loader se posicione dentro del container */
+}
+
+.timer {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
 }
 
 .image-container {
-    position: relative; /* Posicionamiento relativo para el contenedor */
+    position: relative;
+    margin: 20px 0;
+    border: 3px solid #007bff;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .main-image {
     max-width: 100%;
-    height: auto; /* Mantiene la relación de aspecto de la imagen principal */
+    border-radius: 15px;
 }
 
 .player-image {
-    border: 1px solid red;
-    position: absolute; /* Posicionamiento absoluto para la imagen del jugador */
-    top: 50%; /* Ajusta la posición vertical según sea necesario */
-    left: 20%; /* Ajusta la posición horizontal según sea necesario */
-    width: 50px; /* Ajusta el tamaño de la imagen del jugador */
-    height: auto; /* Mantiene la relación de aspecto de la imagen del jugador */
-    z-index: 10; /* Asegura que la imagen del jugador esté encima */
+    position: absolute;
+    width: 50px;
+    height: auto;
+    z-index: 10;
+    cursor: pointer;
 }
 
 .start-button {
     display: inline-block;
-    padding: 10px 20px; /* Espaciado interno del botón */
+    padding: 12px 25px;
     font-size: 1.2rem;
-    color: #ffffff; /* Color del texto blanco */
-    background-color: #007bff; /* Color de fondo del botón */
+    color: white;
+    background-color: #28a745;
     border: none;
-    border-radius: 5px; /* Bordes redondeados */
-    text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s; /* Transición para el color de fondo */
-    margin-top: 20px; /* Espacio arriba del botón */
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .start-button:hover {
-    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .timer {
+        font-size: 1.2rem;
+    }
+
+    .player-image {
+        width: 40px;
+    }
+
+    .start-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
 }

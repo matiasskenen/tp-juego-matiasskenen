@@ -65,7 +65,6 @@ export class SingUpComponent {
 
   enviarForm() {
     console.log(this.form.value);
-    
   }
 
 

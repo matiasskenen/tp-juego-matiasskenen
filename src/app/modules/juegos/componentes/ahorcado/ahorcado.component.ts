@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { WordsService } from '../../../../servicios/palabras/words.service';
+import { DataService } from '../../../../service/data.service';
+import { PuntuajeService } from '../../../../servicios/puntuaje.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-ahorcado',
@@ -24,9 +27,12 @@ export class AhorcadoComponent
   letrasUsadas: string[] = []; // Array para almacenar letras ya utilizadas
   http = inject(HttpClient);
 
+  nombreJugador : any;
+
   puntuacion = 0;
 
-  constructor(private palabras: WordsService) {
+  constructor(private palabras: WordsService, private authService: Auth, private puntuajeService : PuntuajeService) {
+    this.nombreJugador = authService.currentUser?.email;
     this.palabraRandom();
   }
 
@@ -120,6 +126,9 @@ export class AhorcadoComponent
         setTimeout(() => {
           this.volverAjugar();
         }, 2000);
+
+        this.puntuajeService.sendPuntuaje('ahorcado', this.puntuacion, this.nombreJugador);
+        
         break;
     }
   }

@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { QuiensoyComponent } from './quiensoy/quiensoy.component';
 import { SingUpComponent } from './sing-up/sing-up.component';
 import { ChatComponent } from './chat/chat.component';
+import { PuntuajeComponent } from './puntuaje/puntuaje.component';
+import { EncuestaComponent } from './encuesta/encuesta.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: "full" },
@@ -16,4 +18,6 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'quiensoy', component: QuiensoyComponent },
     { path: 'singin', component: SingUpComponent },
+    { path: 'puntuaje', component: PuntuajeComponent },
+    { path: 'encuesta', component: EncuestaComponent },
 ];

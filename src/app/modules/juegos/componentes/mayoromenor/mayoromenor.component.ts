@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CartasService } from '../../../../servicios/mayoromenor/cartas.service';
 import { timeout } from 'rxjs';
+import { PuntuajeService } from '../../../../servicios/puntuaje.service';
+import { DataService } from '../../../../service/data.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-mayoromenor',
@@ -29,8 +32,12 @@ export class MayoromenorComponent
   mostrarResultado = false;
   resultadoJuego! : string;
 
-  constructor(private cartasServicio: CartasService) 
+  nombreJugador : any;
+
+
+  constructor(private cartasServicio: CartasService, private puntuajeService : PuntuajeService, private authService: Auth) 
   {
+    this.nombreJugador = authService.currentUser?.email;
   }
 
   async iniciarJuego() {
@@ -92,6 +99,9 @@ export class MayoromenorComponent
     }
     else
     {
+      this.puntuajeService.sendPuntuaje('mayorMenor', this.puntuacion, this.nombreJugador);
+      console.log("enviado")
+      this.puntuacion = 0;
       this.mostrarResultado = true;
       this.resultadoJuego = "Perdiste"
 
@@ -133,6 +143,9 @@ export class MayoromenorComponent
     }
     else
     {
+      this.puntuajeService.sendPuntuaje('mayorMenor', this.puntuacion, this.nombreJugador);
+      console.log("enviado")
+      this.puntuacion = 0;
       this.mostrarResultado = true;
       this.resultadoJuego = "Perdiste"
 

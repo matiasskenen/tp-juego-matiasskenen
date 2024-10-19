@@ -49,6 +49,16 @@ export class HeaderComponent {
     this.router.navigate(['/chat'])
   }
 
+  toPuntuaje()
+  {
+    this.router.navigate(['/puntuaje'])
+  }
+
+  toEncuesta()
+  {
+    this.router.navigate(['/encuesta'])
+  }
+
   async signOut() {
     try {
       await this.auth.signOut();
