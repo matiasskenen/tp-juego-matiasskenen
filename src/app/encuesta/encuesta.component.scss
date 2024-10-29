@@ -10,6 +10,7 @@ body {
     border: 1px solid;
     margin-top: 100px;
     margin-bottom: 100px;
+    margin-left: 500px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -36,7 +37,7 @@ body {
   input[type="text"],
   input[type="number"],
   textarea {
-    width: 100%;
+    width: 90%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -60,4 +61,26 @@ body {
   button:hover {
     background-color: #218838;
   }
+
+  .text-danger{
+    color: red;
+  }
+
+  .mensaje p {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
   
+
+  .form-group,
+.form-control-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: red;
+}

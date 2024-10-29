@@ -41,8 +41,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1000kB",
-                  "maximumError": "10MB"
+                  "maximumWarning": "1500kb",
+                  "maximumError": "2000kb" 
                 },
                 {
                   "type": "anyComponentStyle",
@@ -50,7 +50,10 @@
                   "maximumError": "400kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "allowedCommonJsDependencies": [
+                "sweetalert2"
+              ]
             },
             "development": {
               "optimization": false,
@@ -93,10 +96,7 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
-            "scripts": {
-                "build": "ng build && cp -r public dist/nombre-del-proyecto/assets"
-            }
+            ]
           }
         }
       }

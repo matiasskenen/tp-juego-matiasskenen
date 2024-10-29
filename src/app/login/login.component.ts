@@ -16,6 +16,10 @@ import { ChatService, Message } from '../servicios/basedatos/chat.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
+
+
+
+
 export class LoginComponent {
   public email: string = '';
   public password: string = '';
@@ -81,6 +85,7 @@ export class LoginComponent {
         {
           this.isLoading = true;
           setTimeout(() => {
+            console.log("aaaaaaaaca" + this.email)
             this.userService.setUser(this.email);
             this.isLoading = false;
             this.router.navigate(["/home"]);

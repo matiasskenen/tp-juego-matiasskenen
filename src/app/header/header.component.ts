@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   public user: any;
 
-  constructor(private router: Router, private authService: DataService, private auth : Auth,  private userService: DataService)
+  constructor(private router: Router, private authService: DataService, private auth : Auth,)
   {
     this.checkUser();
   }

@@ -7,11 +7,13 @@ import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatosService } from '../servicios/encuesta/datos.service';
+import Swal from 'sweetalert2';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @Component({
   selector: 'app-encuesta',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, SweetAlert2Module],
   templateUrl: './encuesta.component.html',
   styleUrl: './encuesta.component.scss'
 })
@@ -92,6 +94,15 @@ export class EncuestaComponent {
 
     if (this.form.valid) {
       console.log('Formulario enviado', this.form.value);
+      this.form.reset();
+      this.resultado = "El formulario Enviado"
+
+      Swal.fire({
+        title: "Formulario Enviado",
+        text: "Enviado!",
+        icon: "success"
+      });
+
     } else {
       this.resultado = "El formulario no es válido, Completar los demas Campos"
       this.form.markAllAsTouched();

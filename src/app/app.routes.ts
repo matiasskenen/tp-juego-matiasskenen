@@ -6,6 +6,7 @@ import { SingUpComponent } from './sing-up/sing-up.component';
 import { ChatComponent } from './chat/chat.component';
 import { PuntuajeComponent } from './puntuaje/puntuaje.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: "full" },
@@ -18,6 +19,6 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'quiensoy', component: QuiensoyComponent },
     { path: 'singin', component: SingUpComponent },
-    { path: 'puntuaje', component: PuntuajeComponent },
+    { path: 'puntuaje', component: PuntuajeComponent , canActivate: [AuthGuard]},
     { path: 'encuesta', component: EncuestaComponent },
 ];

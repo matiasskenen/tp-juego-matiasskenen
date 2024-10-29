@@ -13,6 +13,7 @@
                     <th>Juego</th>
                     <th>Puntuación</th>
                     <th>Fecha</th>
+                    <th>Tiempo</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,7 @@
                     <td>{{ item.juego }}</td>
                     <td>{{ item.puntos }}</td>
                     <td>{{ item.fecha }}</td>
+                    <td *ngIf="item.tiempo">{{ item.tiempo }}</td>
                 </tr>
             </tbody>
         </table>

@@ -65,9 +65,13 @@ export class EncuentraloComponent implements AfterViewInit {
   }
 
   jugador() {
+    console.log("new")
     this.resultado = "GANASTE"
     this.puntuacion += 1;
+    this.puntuajeService.sendPuntuajeWally('encuentralo', this.puntuacion, this.time, this.nombreJugador);
     this.stopTimer();
+    this.startTimer()
+
   }
 
   startTimer() {
@@ -83,7 +87,7 @@ export class EncuentraloComponent implements AfterViewInit {
         if (this.time <= 0) {
           this.stopTimer();
           this.resultado = "PERDISTE";
-          this.puntuajeService.sendPuntuaje('encuentralo', this.puntuacion, this.nombreJugador);
+          this.puntuajeService.sendPuntuajeWally('encuentralo', this.puntuacion, "Perdedor", this.nombreJugador);
           this.puntuacion = 0;
         }
       }, 1000);
@@ -92,7 +96,6 @@ export class EncuentraloComponent implements AfterViewInit {
 
   resetGame() {
     this.time = 30; // Reinicia el tiempo a 30 segundos (o lo que desees)
-    this.puntuacion = 0; // Reinicia la puntuación
     this.juegoinica = false; // Reinicia el estado del juego
   }
 

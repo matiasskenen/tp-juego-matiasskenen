@@ -76,4 +76,44 @@ export class PuntuajeService {
         });
     
   }
+
+  sendPuntuajeWally(nameGame : string, puntosJugador : number, tiempo: any, jugador : string) {
+    console.log(nameGame)
+    let col = collection(this.firestore, nameGame);
+
+    // Cambiamos el formato de la fecha y hora
+    let now = new Date();
+    let formattedDate = now.toLocaleString('es-AR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false // Formato 24 horas
+    });
+
+    let obj = { 
+      fecha: formattedDate, 
+      juego: nameGame,
+      puntos: puntosJugador,
+      tiempo: tiempo,
+      nombre: jugador
+    };
+
+
+    addDoc(col, obj)
+      .then(() => {
+        console.log('Documento agregado con éxito');
+      })
+      .catch((error) => {
+        console.error('Error al agregar documento: ', error);
+      });
+  
 }
+
+
+
+}
+
+
